@@ -22,19 +22,47 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a 
+{
+  color: #F26D02;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+a:hover {
+    cursor: pointer;
+}
+
 </style>
-  <title>WONZIU WRÓĆ</title>
-</head>
-    
+
 <body>
-    <audio preload="auto" autoplay="autoplay" loop="">
+    <audio preload="auto" id="myAudio" loop="">
         <source src="m.mp3">
     </audio>
 
+    <a onClick="togglePlay()">Toggle muzyczka</a>
     <div class="center-screen">
         <p>Można teraz bezpiecznie<br/>wyłączyć komputer.</p>
     </div>
 </body>
+
+</body>
 </html>
 
+<script>
 
+var myAudio = document.getElementById("myAudio");
+var isPlaying = false;
+
+function togglePlay() {
+  isPlaying ? myAudio.pause() : myAudio.play();
+};
+
+myAudio.onplaying = function() {
+  isPlaying = true;
+};
+myAudio.onpause = function() {
+  isPlaying = false;
+};
+
+</script>
