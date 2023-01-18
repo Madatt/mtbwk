@@ -1,70 +1,70 @@
 <html>
+
 <head>
 
-<style>
+    <style>
+        * {
+            overflow: hidden;
+            background-color: black;
+        }
 
-*
-{
-    overflow: hidden;
-    background-color: black;
-}
-    
-.center-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  color: #F26D02;
-  font-size: 48px;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-}
+        .center-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            color: #F26D02;
+            font-size: 48px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-a 
-{
-  color: #F26D02;
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif; 
-}
+        a {
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-a:hover {
-    cursor: pointer;
-}
+        a:hover {
+            cursor: pointer;
+        }
 
-</style>
+        .invis {
+            color: black;
+        }
+    </style>
     <title> WONZIU WRÓĆ </title>
-    
-    </head>
+
+</head>
 
 <body>
     <audio preload="auto" id="myAudio" loop="">
         <source src="m.mp3">
     </audio>
 
-    <a onClick="togglePlay()">Toggle muzyczka</a>
     <div class="center-screen">
-        <p>Można teraz bezpiecznie<br/>wyłączyć komputer.</p>
+        <p>Można teraz bezpiecznie<br />wyłączyć komputer.</p>
+        <a id="toggle" onClick="togglePlay()">Toggle muzyczka</a>
     </div>
 </body>
 
 </html>
 
 <script>
+    var myAudio = document.getElementById("myAudio");
+    var isPlaying = false;
 
-var myAudio = document.getElementById("myAudio");
-var isPlaying = false;
+    function togglePlay() {
+        isPlaying ? myAudio.pause() : myAudio.play();
+        document.getElementById("toggle").classList.toggle('invis');
+    };
 
-function togglePlay() {
-  isPlaying ? myAudio.pause() : myAudio.play();
-};
-
-myAudio.onplaying = function() {
-  isPlaying = true;
-};
-myAudio.onpause = function() {
-  isPlaying = false;
-};
+    myAudio.onplaying = function () {
+        isPlaying = true;
+    };
+    myAudio.onpause = function () {
+        isPlaying = false;
+    };
 
 </script>
