@@ -45,8 +45,7 @@
 </head>
 
 <body>
-    <audio preload="auto" id="myAudio" loop="">
-        <source src="m.mp3">
+    <audio preload="auto" id="myAudio" loop="" src="1.mp3">
     </audio>
 
     <div class="center-screen">
@@ -58,6 +57,17 @@
 </html>
 
 <script>
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
+
+    window.onload = function () {
+        var myAudio = document.getElementById("myAudio");
+        myAudio.src = randomIntFromInterval(1, 4) + ".mp3"
+        myAudio.load();
+    }
+
     var myAudio = document.getElementById("myAudio");
     var isPlaying = false;
 
